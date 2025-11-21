@@ -101,4 +101,3 @@ def test_carrito(driver):
 
     take_screenshot(driver, "test_carrito")
    
-   #No pude hacer funcionar la captura :(
