@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 import time
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC
+import os
 
 
 # Constantes de configuración
@@ -63,3 +64,10 @@ def login_saucedemo(driver):
     # time.sleep opcional para debug visual 
     time.sleep(5)
 
+
+def get_file_path(file_name, folder="Data"):
+    current_file = os.path.dirname(__file__)
+    file_path = os.path.join(current_file,"..",folder,file_name)
+
+    #../Data/data_login.csv > rlativo qe se tien que transfrmar en absoluto
+    return  os.path.abspath(file_path)
