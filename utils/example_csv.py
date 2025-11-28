@@ -1,12 +1,19 @@
 import os 
 import csv
 import json
-from utils.helpers import get_file_path
+#from utils.helpers import get_file_path
+from pathlib import Path
 
 
 def get_login_csv(csv_file="data_login.csv"):
 
-    csv_file = get_file_path(csv_file, "data")
+    #csv_file = get_file_path(csv_file, "data")
+    
+    current_file = os.path.dirname(__file__) #el archivo donde estoy
+    csv_file = os.path.join(current_file,"..","data","archivos",csv_file)
+    #../Data/data_login.csv=> rel
+    csv_file = os.path.abspath(csv_file)
+
 
     casos = []
 
