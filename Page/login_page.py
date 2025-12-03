@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from utils.helpers import URL , USERNAME , PASSWORD
+from utils.helpers import URL, USERNAME, PASSWORD
 from selenium.webdriver.common.by import By
 
 
@@ -13,20 +13,18 @@ class LoginPage:
     def __init__(self , driver):
         self.driver = driver
 
-    def open( self):
+    def open(self):
         self.driver.get(URL)
 
-
-    def login(self , username=USERNAME , password = PASSWORD):
-
-        WebDriverWait(self.driver,5).until(
+    def login(self, username=USERNAME, password=PASSWORD):
+        WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self._INPUT_NAME)
         ).send_keys(username)
 
-        WebDriverWait(self.driver,5).until(
+        WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self._INPUT_PASSWORD)
         ).send_keys(password)
 
-        WebDriverWait(self.driver,5).until(
+        WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self._LOGIN_BUTTON)
         ).click()
